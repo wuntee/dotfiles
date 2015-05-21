@@ -1,0 +1,36 @@
+startup_message off
+altscreen on
+term xterm-256color
+bind ',' prev
+bind '.' next
+
+#change the hardstatus settings to give an window list at the bottom of the
+#screen, with the time and date and with the current window highlighted
+hardstatus alwayslastline
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+escape ^Oo
+defscrollback 10000
+
+screen -t code 0 
+select 0
+split
+focus
+screen -t debugger 1
+split
+focus
+screen -t stack 3
+split
+focus
+screen -t backtrace 4
+split -v 
+focus
+screen -t breakpoints 5
+
+focus up
+focus up
+focus up
+split -v 
+screen -t regs 6 voltron register disasm
+
+focus down
