@@ -1,36 +1,32 @@
 startup_message off
 altscreen on
 term xterm-256color
-bind ',' prev
-bind '.' next
+bind 'p' focus prev
+bind 'n' focus next
 
-#change the hardstatus settings to give an window list at the bottom of the
-#screen, with the time and date and with the current window highlighted
-hardstatus alwayslastline
-#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+hardstatus off
 escape ^Oo
 defscrollback 10000
 
-screen -t code 0 
-select 0
+split
+split
 split
 focus
-screen -t debugger 1
-split
-focus
-screen -t stack 3
-split
-focus
-screen -t backtrace 4
-split -v 
-focus
-screen -t breakpoints 5
-
+screen -t "lldb" 0 zsh
 focus up
-focus up
-focus up
-split -v 
-screen -t regs 6 voltron register disasm
-
+screen -t "code" 1 voltron view disassembly --hide-header --hide-footer
+split -v
+focus right
+screen -t "regs" 2 voltron view command 'register read' --hide-header --hide-footer
+resize 80
 focus down
+focus down
+screen -t "stack" 3 voltron view stack --hide-header --hide-footer
+focus down
+screen -t "backtrace" 4 voltron view backtrace --hide-header --hide-footer
+split -v
+focus right
+screen -t "breakpoints" 5 voltron view breakpoints --hide-header --hide-footer
+focus up
+focus up
+
