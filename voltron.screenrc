@@ -1,6 +1,7 @@
 startup_message off
 altscreen on
 term xterm-256color
+
 bind 'p' focus prev
 bind 'n' focus next
 
@@ -12,21 +13,21 @@ split
 split
 split
 focus
-screen -t "lldb" 0 zsh
+screen -t "lldb" 0 lldb 
 focus up
-screen -t "code" 1 voltron view disassembly --hide-header --hide-footer
+screen -t "code" 1 voltron view disassembly
 split -v
 focus right
-screen -t "regs" 2 voltron view command 'register read' --hide-header --hide-footer
-resize 80
+screen -t "regs" 2 voltron view register
+resize 50
 focus down
 focus down
-screen -t "stack" 3 voltron view stack --hide-header --hide-footer
+screen -t "stack" 3 voltron view stack
 focus down
-screen -t "backtrace" 4 voltron view backtrace --hide-header --hide-footer
+screen -t "backtrace" 4 voltron view backtrace
 split -v
 focus right
-screen -t "breakpoints" 5 voltron view breakpoints --hide-header --hide-footer
+screen -t "breakpoints" 5 voltron view breakpoints
 focus up
 focus up
 
