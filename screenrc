@@ -1,0 +1,13 @@
+startup_message off
+altscreen on
+term xterm-256color
+bind ',' prev
+bind '.' next
+
+hardstatus alwayslastline
+
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+escape ^Oo
+defscrollback 10000
+screen -t irssi 0 zsh
+screen -t zsh 1 zsh
