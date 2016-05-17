@@ -1,0 +1,9 @@
+Packages:
+	file-icons
+	git-plus
+	go-plus
+	pretty-json
+Themes:
+	UI: isotope-light-ui
+	Syntax: firefox-light-ui
+
