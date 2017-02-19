@@ -82,20 +82,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export GOPATH='/Users/mathewrowley/Development/go'
-export SQUARE_HOME='/Users/mathewrowley/Development'
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-########################################################
-# bootstrap Square bashrc; please don't change this bit.
-########################################################
-if [[ -f "$SQUARE_HOME/config_files/square/zshrc" ]]; then
-  source $SQUARE_HOME/config_files/square/zshrc
-fi
-########################################################
-
-export LSCOLORS=Bxfxcxdxbxegedabagacad
-
